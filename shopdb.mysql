@@ -1,0 +1,9 @@
+create database shopdb1;
+use db1;
+create table products(productID int,productname char(100),category char(50),price decimal ,stockQuantity  int);
+select*from products;
+describe products;
+create table customers(customerID int,FirstName varchar(50),LastName varchar(50),Email varchar(100));
+ALTER TABLE products ADD Description varchar(255);
+ALTER TABLE customers MODIFY Email varchar(255);
+ALTER TABLE products DROP category;
