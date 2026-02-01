@@ -1,0 +1,61 @@
+CREATE DATABASE MediCareDB3; 
+USE MediCareDB3;
+CREATE TABLE Doctors (
+    DoctorID INT PRIMARY KEY,
+    DoctorName VARCHAR(100) NOT NULL,
+    Specialization VARCHAR(50),
+    ConsultationFee DECIMAL(7,2) CHECK (ConsultationFee > 0),
+    ExperienceYears INT CHECK (ExperienceYears >= 0)
+);
+DESCRIBE Doctors;
+CREATE TABLE Patients (
+    PatientID INT PRIMARY KEY,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50),
+    Email VARCHAR(100) UNIQUE,
+    RegistrationDate DATE DEFAULT (CURDATE()));
+    ALTER TABLE Doctors
+    ADD AvailabilityStatus VARCHAR(20) DEFAULT 'Available';
+    ALTER TABLE Patients
+MODIFY Email VARCHAR(255);
+ALTER TABLE Doctors
+DROP COLUMN Specialization;
+INSERT INTO Patients
+(PatientID, FirstName, LastName, Email)
+VALUES
+(201, 'Ravi', 'Kumar', 'ravi@gmail.com');
+SELECT * FROM Doctors;
+SELECT * FROM Patients;
+UPDATE Doctors
+SET AvailabilityStatus = 'Not Available'
+WHERE DoctorID = 301;
+DELETE FROM Patients
+WHERE PatientID = 201;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
